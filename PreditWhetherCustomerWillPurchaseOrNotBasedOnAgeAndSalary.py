@@ -85,7 +85,10 @@ y_pred = classifier.predict(X_test)
 # Making the Confusion Matrix
 from sklearn.metrics import confusion_matrix
 cm = confusion_matrix(y_test, y_pred)
-
+print ("Confusion Matrix: ", cm)
+print ("Classification Rate/Accuracy: ", ((cm[0][0]+cm[1][1])/(cm[0][0]+cm[0][1]+cm[1][0]+cm[1][1]))*100, "%")
+print ("Recall: Recall gives us an idea about when it’s actually yes, how often does it predict yes: ", cm[1][1]/(cm[1][0]+cm[1][1]))
+print ("Precision: Precsion tells us about when it predicts yes, how often is it correct.: ", cm[1][1]/(cm[0][1]+cm[1][1]))
 """
 # Visualising the Training set results
 from matplotlib.colors import ListedColormap
